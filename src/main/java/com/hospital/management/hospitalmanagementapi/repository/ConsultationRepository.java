@@ -28,7 +28,7 @@ public interface ConsultationRepository extends JpaRepository<Consultation, Long
 	 *         non-existent
 	 */
 
-	@Query("select c from Consultation c where c.patient.id = :patientId and c.consultationDate = :consultationDate and c.cancelled = false")
+	@Query(value = "select c from Consultation c where c.patient.id = :patientId and c.consultationDate = :consultationDate and c.cancelled = false")
 	Consultation findConsultationByPatientAndDate(Long patientId, LocalDateTime consultationDate);
 
 	/**
@@ -40,7 +40,7 @@ public interface ConsultationRepository extends JpaRepository<Consultation, Long
 	 *         non-existent
 	 */
 
-	@Query("select c from Consultation c where c.doctor.id = :patientId and c.consultationDate = :consultationDate and c.cancelled = false")
+	@Query(value = "select c from Consultation c where c.doctor.id = :patientId and c.consultationDate = :consultationDate and c.cancelled = false")
 	Consultation findConsultationByDoctorAndDate(Long doctorId, LocalDateTime consultationDate);
 
 }
